@@ -23,7 +23,6 @@ const {dailyJobScraping} = require('./util/scheduler')
 const {pullJobPostings} = require('./controllers/jobPostingFetcher')
 const {jobPostingDataPurge} = require('./controllers/jobPostingDataPurge')
 const {setupCompanyListFromTxt} = require('./controllers/companyListInit');
-
 const { sequelize } = require('./models');
 
 require('dotenv').config()
@@ -43,7 +42,6 @@ sequelize.authenticate().then(() => {
 }).catch(err => {
   console.error('[Server]Unable to connect to the database:', err)});
 dailyJobScraping();
-pullJobPostings();
 
 // Alternative method that can be used in case of handling multiple routers
 // https://www.cloudnativemaster.com/post/how-to-add-multiple-routers-in-a-node-application-without-using-app-use-for-each-router
